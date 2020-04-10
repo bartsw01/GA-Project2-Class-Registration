@@ -3,11 +3,11 @@
 # _Getting Started:_
 [Click on Link to Run Application](https://github.com/bartsw01/GA-Project2-Class-Registration)
 
-[Click on Link to Open Trello Board](https://trello.com/b/O0LYInMg/ga-registration-project2)
+[Click on Link to Open Trello Board](https://trello.com/b/O0LYInMg/ga-registration-project2`)
 
 # _Screenshot(s):
 
-![Game Screenshot](...)
+![Game Screenshot](https://github.com/bartsw01/GA-Project1-War-CardGame/blob/master/images/War-Screen-Shot1.png)
 
 #### _Class Registration Application, April 17, 2020_
 
@@ -27,13 +27,18 @@ _CRUD Application for registering students for a class._
 
 ## Specification
 
-| Behavior      | Input | Output |
-| ------------- | ------------- | ------------- |
-| Player 1 clicks New Game | Click New Game button  | 52 card deck is generated |
-| Player 1 clicks Deal Hand | Click Deal Hand | Two decks of 26 random cards are created |         
-| Player 1 clicks Next Turn |Click Next Turn Button |2 Cards are drawn from each player deck and compared, winner determined|
-| Repeat until both decks are empty | Click Next Turn Button | Both players have zero cards in their decks|
-| Whichever player has a higher score wins| Player 1 Score:   Player 2 Score:  | Winner page |
+| HTTP Method   | URL Endpoint | Controller Action |  Purpose  |
+| ------------- | ------------- | ------------- | -------------------- |
+| GET | /courses | coursesCtrl.index | View all courses that user signed up for |
+| GET | /courses/all | coursesCtrl.allCourses |  View all courses |
+| GET |/courses/:id | coursesCtrl.show |   View Details of a course |
+| GET | /courses/new| coursesCtrl.new| View a form for create an online course |
+| POST | /courses  | coursesCtrl.create| Handle the new online course being submitted |
+| GET | /courses/:id/edit  | coursesCtrl.edit| Edit online course details (restrict to admin) |
+| PUT | /courses  | coursesCtrl.create| Handle the new online course being submitted |
+| DELETE| /courses  | coursesCtrl.create| Handle the new online course being submitted |
+| POST | /courses  | coursesCtrl.create| Handle the new online course being submitted |
+
 
 ## Known Bugs
 
@@ -53,8 +58,7 @@ _GitHub_
 
 ## Planned future enhancements 
 
-_Background Color_
-_Different Variants - Cards are put into player decks instead of discard pile_
+
 
 
 ### License
