@@ -7,7 +7,7 @@
 
 # _Screenshot(s):
 
-![Game Screenshot](https://github.com/bartsw01/GA-Project1-War-CardGame/blob/master/images/War-Screen-Shot1.png)
+![Game Screenshot](https://github.com/bartsw01/GA-Project2-Class-Registration/blob/master/images/GA-Project2-ERD.png)
 
 #### _Class Registration Application, April 17, 2020_
 
