@@ -26,10 +26,27 @@
 
 # _Step 3......Setup Google OAuth (11 Steps)
     1. setup GOOGLE_CLIENT_ID, GOOGLE_SECRET, GOOGLE_CALLBACK
+    2. install Session Middleware - npm install express-session
+    3. install Passport.js
 
 [Click on Link to open Google OAuth markdown file](https://git.generalassemb.ly/SEI/dt-71/blob/master/units/2_full_stack/w05/d4/01-02-oauth-authentication/oauth-lesson.md)
 
 [Click on Link for Google OAuth completed code](https://git.generalassemb.ly/SEI/dt-71/blob/master/units/2_full_stack/w05/d4/01-02-oauth-authentication/completed-code/sei-students/routes/students.js)
 
 
+# _Step 4......Check Dependencies in package.json
 
+"dependencies": {
+    "cookie-parser": "^1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-session": "^1.17.0",
+    "http-errors": "~1.6.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.2",
+    "morgan": "~1.9.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0"
+  }
