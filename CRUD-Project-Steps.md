@@ -9,7 +9,7 @@
 
 # _Step 1......Setup Initial files
     1. express -e <file-folder>
-    2. npm install
+    2. npm install, npm install dotenv   require('dotenv').config(); in server.js
     3. npm install mongoose
     4. npm install method-override
     5. create config/database.js
@@ -50,3 +50,27 @@
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0"
   }
+
+  
+What order should I do things in? This is Taylor's back-to-front method designed to foster understanding and keep things feeling more organized and palpable/less chaotic. There are so many things to track and many moving parts! This is how I've seen folks be the most successful and avoid overwhelm:
+Get your Oauth set up and verify that it is fully working
+Code out your schemas inside your models folder (this should exactly match your ERD)
+Add the middleware for your routes into your server.js, then write your routes. Remember, a route looks like router.get(<path>, <action>), instead of setting up your controllers and immediately using those to fill in the action, just fill it in with a dummy method like so:
+router.get('/about', () => {res.send('this is the about page!')})
+4. Once you know your routes are working because you've tested them in the browser, now you can set up your controllers to slowly replace your actions. Again, in your controller actions, start with a res.send() just to make sure you're hitting the controller:
+const index()=>{
+      res.send('ayyy my home route hit my index controller, cool!!')
+}
+5. Now that you know your controllers are hooked up appropriately to your routes and everything is showing up as planned in your browser when you navigate to each path (i.e. you're getting the text you put in your res.send() actions), add the database queries to your controllers and send the data through to make sure you're getting the data you want (you can use insomnia to try out your post/put routes):
+const index()=>{
+      Books.find().then((err, books)=>{
+         res.send('ayyy my home route hit my index controller, cool!!')
+      })
+}
+6. Test all of this so you know you are getting the data you want from your database queries. **now** start writing out your views and sending the data you need access to in your ejs through your controller actions. So, you would replace the above action with something like this:
+const index()=>{
+      Books.find().then((err, books)=>{
+         res.render('index', {books})
+      })
+}
+7. Now you know your backend is all set up, and most of the errors you hit should be just with regards to your ejs. (edited) 
