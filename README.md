@@ -6,7 +6,7 @@
 
 
 
-[Click on Link to Run Application](https://github.com/bartsw01/GA-Project2-Class-Registration)
+[Click on Link to view GitHub Repo](https://github.com/bartsw01/GA-Project2-Class-Registration)
 
 [Click on Link to Open Trello Board](https://trello.com/b/O0LYInMg/ga-registration-project2`)
 
