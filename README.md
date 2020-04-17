@@ -1,6 +1,11 @@
 # GA-Project2-Class-Registration
 # _Class Registration CRUD Application_
 # _Getting Started:_
+
+[Click on Link to Run from Heroku](https://shrouded-savannah-16879.herokuapp.com/)
+
+
+
 [Click on Link to Run Application](https://github.com/bartsw01/GA-Project2-Class-Registration)
 
 [Click on Link to Open Trello Board](https://trello.com/b/O0LYInMg/ga-registration-project2`)
@@ -35,14 +40,17 @@ _CRUD Application for registering students for a class._
 | GET | /courses/new| coursesCtrl.new| View a form for create an online course |
 | POST | /courses  | coursesCtrl.create| Handle the new online course being submitted |
 | GET | /courses/:id/edit  | coursesCtrl.edit| Edit online course details (restrict to admin) |
-| PUT | /courses  | coursesCtrl.create| Handle the new online course being submitted |
-| DELETE| /courses  | coursesCtrl.create| Handle the new online course being submitted |
-| POST | /courses  | coursesCtrl.create| Handle the new online course being submitted |
+| PUT | /courses  | coursesCtrl.edit| Make changes to course |
+| DELETE| /courses  | coursesCtrl.delete| Delete a course|
+
 
 
 ## Known Bugs
 
-_There are no known bugs._
+_OAuth needs troubleshooting._
+_DETAILS link stopped working._
+_EDIT, UPDATE, and DELETE functions are in the DETAIL page._
+_STUDENT List not implemented._
 
 ## Support and contact details
 
@@ -52,13 +60,18 @@ _If you have any questions or suggestions. Please free to contact us._
 
 _HTML_
 _CSS_
-_Bootstrap_
+_Express_
 _JavaScripts_
 _GitHub_
+_Mongoose_
+_MongoDB_
+_Passport_
 
 ## Planned future enhancements 
 
-
+_Students could log in and choose a class to signup for_
+_Email confirmation sent back to student_
+_Display list of students in each class_
 
 
 ### License

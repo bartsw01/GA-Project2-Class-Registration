@@ -15,7 +15,8 @@
     <nav>
       <div class="nav-wrapper">
         <a href="" class="brand-logo left">OPEN-S Registration</a>
-        <ul class="right">
+        <br><br>
+        <ul>
           <li>
             <% if (user) { %>
             <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
@@ -23,7 +24,7 @@
             <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
             <% } %>
           </li>
-          <li><%= user ? `Logged in as: ${user.name}` : "Not Logged In" %></li>
+         
         </ul>
       </div>
     </nav>
