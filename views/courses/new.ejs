@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/courses" method="POST">
+  <label>Course Title:</label>
+  <input type="text" name="title">
+  <label>Day of the Week</label>
+  <select name="dayOfWeek">
+    <option value="Mon">Mon</option>
+    <option value="Tues">Tues</option>
+    <option value="Wed">Wed</option>
+    <option value="Thur">Thur</option>
+    <option value="Fri">Fri</option>
+  </select>
+  <label>Number of Weeks:</label>
+  <input type="number" name="noOfWeeks">
+  <label>Course Number:</label>
+  <input type="number" name="courseNo">
+  <label>Start Date:</label>
+  <input type="number" name="startDate">
+  <input type="submit" value="Add Course">
+</form>
+
+<%- include('../partials/footer') %>

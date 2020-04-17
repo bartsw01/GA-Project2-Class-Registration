@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+    <div>Course Title: </div>
+    <div><%= course.title %></div>
+    <div>Day of the Week: </div>
+    <div><%= course.dayOfWeek %></div>
+    <div>Number of Weeks: </div>
+    <div><%= course.noOfWeeks %></div>
+    <div>Course Number: </div>
+    <div><%= course.courseNo %></div>
+    <div>Start Date: </div>
+    <div><%= course.startDate %></div>
+    <div>Student List:</div>
+    <ul>
+      <%- course.studentList.map(p => 
+        `<li>${s.name}</li>`
+      ).join('') %>
+    </ul>
+  </section>
+
+  <form id="add-student-to-studentList" action="/courses/<%= course._id%>/students" method="POST">
+    <select name="studentId">
+      <%- students.map(s => `<option value="${s._id}">${s.name}</option>`).join('') %>
+    </select>
+    <button type="submit">Add to Student List</button>
+  </form>
+
+
+<%- include('../partials/footer') %>

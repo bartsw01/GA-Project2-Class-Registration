@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 
-const courseSchema = new mongoose.Schema({
+const courseSchema = new Schema({
   
     title: {
         type: String,
         // enum: ['Intro to JavaScript', 'Minecraft Mods with Java', 'Website Design', ]
+        required: true
     },
 
     dayOfWeek: {

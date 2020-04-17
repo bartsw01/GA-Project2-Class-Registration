@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<table>
+    <thead>
+      <tr>
+        <th>Course Title</th>
+        <th>WeekDay</th>
+        <th>Number of Weeks</th>
+        <th>Course Number</th>
+        <th>Start Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% courses.forEach( (c) => { %>
+        <tr>
+          <td><%= c.title %></td>
+          <td><%= c.dayOfWeek %></td>
+          <td><%= c.noOfWeeks %></td>
+          <td><%= c.courseNo %></td>
+          <td><%= c.startDate %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

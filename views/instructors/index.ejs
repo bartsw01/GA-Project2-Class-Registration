@@ -31,7 +31,7 @@
   <div class="container">
     <div id="search-row" class="row">
       <h2 class="col s4 blue-grey-text text-darken-2">Create Online Course</h2>
-      <form action="/students" method="GET">
+      <form action="/instructors" method="GET">
         <div class="col s3 offset-s3">
           <!-- search -->
           <div class="input-field">
@@ -59,39 +59,20 @@
       </form>
     </div>
     <div class="row">
-      <div id="students" class="col s12">
-        <% students.forEach(function(student) { %>
+      <div id="instructors" class="col s12">
+        <% instructors.forEach(function(instructor) { %>
         <div class="card blue-grey">
           <div class="card-content white-text">
             <div>
               <span class="card-title">
                 <i class="small material-icons">perm_identity</i>
-                <span class="student-name"><%= student.name %></span>
-                <% if (student.cohort) { %><span class="badge white">SEI <%= student.cohort %></span><% } %>
+                <span class="instructor-name"><%= instructor.name %></span>
+                
               </span>
             </div>
-            <ul class="collection">
-              <% student.facts.forEach(function(fact) { %>
-              <li class="collection-item blue-grey-text text-darken-2">
-              <!-- Add delete form - don't forget to install method-override -->
-              <span class="title"><%- fact.text %></span>
-              <% if (student._id.equals(user && user._id)) { %>
-                <form action="/facts/<%= fact._id %>?_method=DELETE" method="POST" class="secondary-content">
-                  <button type="submit" class="btn-small red-text">X</button>
-                </form>
-              <% } %>
-              </li>
-              <% }) %>
-            </ul>
+            
             <!-- new code below -->
-            <% if (student._id.equals(user && user._id)) { %>
-              <div class="card-action">
-                <form action="/facts" method="POST">
-                  <input type="text" name="text" class="white-text">
-                  <button type="submit" class="btn white-text">Add Course</button>
-                </form>
-              </div>
-            <% } %>
+           
           </div>
         </div>
         <% }) %>

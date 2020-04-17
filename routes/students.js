@@ -1,21 +1,14 @@
-var router = require('express').Router();
-var studentsCtrl = require('../controllers/students');
+const express = require('express');
+const router = express.Router();
+const studentsCtrl = require('../controllers/students');
 
-const isLoggedIn = (req, res, next) => {
-  if(req.isAuthenticated()) return next();
-  res.redirect('/auth/google');
-}
+router.get('/students/new', studentsCtrl.new);
+router.post('/students', studentsCtrl.create);
+router.post('/courses/:id/students', studentsCtrl.addToStudentList);
 
-// GET /students
-router.get('/', isLoggedIn, studentsCtrl.index);
 
-// POST /facts
-// We will already have access to the logged in student on
-// the server, therefore do not use: /students/:id/facts
-router.post('/facts', studentsCtrl.addFact);
 
-// DELETE /facts/:id
-router.delete('/facts/:id', studentsCtrl.delFact);
+
 
 // /* GET home page. */
 // router.get('/', function(req, res, next) {

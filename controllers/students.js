@@ -1,46 +1,51 @@
-const Student = require("../models/student");
+const Student = require('../models/student');
+const Course = require('../models/course');
+
+
+
+const newStudent = (req, res) => {
+  Student.find({}, function (err, students) {
+    res.render('students/new', {
+      title: 'Add Students',
+      students
+    });
+  })
+}
+
+const create = (req, res) => {
+  // Need to "fix" date formatting to prevent day off by 1
+  // This is due to the <input type="date"> returning the date
+  // string in this format:  "YYYY-MM-DD"
+  const s = req.body.born;
+  req.body.born = `${s.substr(5, 2)}-${s.substr(8, 2)}-${s.substr(0, 4)}`;
+  Students.create(req.body, function (err, student) {
+    res.redirect('/students/new');
+  });
+}
+
+const addToStudentList = (req, res) => {
+  Course.findById(req.params.id, function (err, course) {
+    course.studentList.push(req.body.studentId);
+    course.save(function (err) {
+      res.redirect(`/courses/${course._id}`);
+    });
+  });
+}
 
 module.exports = {
-  index,
-  addFact,
-  delFact,
+  new: newStudent,
+  create,
+  addToStudentList,
 };
 
-function index(req, res, next) {
-  console.log(req.query);
-  // Make the query object to use with Student.find based up
-  // the user has submitted the search form or now
-  let modelQuery = req.query.name
-    ? { name: new RegExp(req.query.name, "i") }
-    : {};
-  // Default to sorting by name
-  let sortKey = req.query.sort || "name";
-  Student.find(modelQuery)
-    .sort(sortKey)
-    .exec(function (err, students) {
-      if (err) return next(err);
-      // Passing search values, name & sortKey, for use in the EJS
-      res.render("students/index", {
-        students,
-        user: req.user,
-        name: req.query.name,
-        sortKey,
-      });
-    });
-}
 
-function addFact(req, res, next) {
-  req.user.facts.push(req.body);
-  req.user.save(function(err) {
-    res.redirect('/students');
-  });
-}
 
-function delFact(req, res, next) {
-  Student.findOne({'facts._id': req.params.id}, function(err, student) {
-    student.facts.id(req.params.id).remove();
-    student.save(function(err) {
-    res.redirect('/students');
-  });
-});
-}
+
+// function deleteStudent(req, res, next) {
+//   Student.findOne({'facts._id': req.params.id}, function(err, student) {
+//     student.facts.id(req.params.id).remove();
+//     student.save(function(err) {
+//     res.redirect('/students');
+//   });
+// });
+// }

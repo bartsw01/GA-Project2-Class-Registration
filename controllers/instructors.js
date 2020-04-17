@@ -1,10 +1,6 @@
 const Instructor = require("../models/instructor");
 
-module.exports = {
-  index,
-  addCourse,
-  delCourse,
-};
+
 
 function index(req, res, next) {
   console.log(req.query);
@@ -32,15 +28,21 @@ function index(req, res, next) {
 function addCourse(req, res, next) {
   req.user.courses.push(req.body);
   req.user.save(function(err) {
-    res.redirect('/courses');
+    res.redirect('/instructors');
   });
 }
 
 function delCourse(req, res, next) {
-  Course.findOne({'courses._id': req.params.id}, function(err, course) {
-    course.id(req.params.id).remove();
-    course.save(function(err) {
-    res.redirect('/courses');
+  Instructor.findOne({'courses._id': req.params.id}, function(err, instructor) {
+    instructor.id(req.params.id).remove();
+    instructor.save(function(err) {
+    res.redirect('/instructors');
   });
 });
 }
+
+module.exports = {
+    index,
+    addCourse,
+    delCourse,
+  };

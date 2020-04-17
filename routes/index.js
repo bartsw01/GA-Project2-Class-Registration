@@ -4,7 +4,7 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'OPEN-S Registration' });
+  res.redirect('/instructors');
   // res.redirect('/students');
 });
 
@@ -17,15 +17,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/students',
-    failureRedirect : '/students'
+    successRedirect : '/instructors',
+    failureRedirect : '/instructors'
   }
 ));
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/students');
+  res.redirect('/instructors');
 });
 
 module.exports = router;

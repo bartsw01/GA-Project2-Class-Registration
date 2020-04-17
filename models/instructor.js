@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const instructorSchema = new mongoose.Schema({
+const instructorSchema = new Schema({
+  // role: {
+  //   type: String,
+  //   default: "admin",
+  // },
+
   name: String,
   email: String,
   avatar: String,
