@@ -31,32 +31,7 @@
   <div class="container">
     <div id="search-row" class="row">
       <h2 class="col s4 blue-grey-text text-darken-2">Create Online Course</h2>
-      <form action="/instructors" method="GET">
-        <div class="col s3 offset-s3">
-          <!-- search -->
-          <div class="input-field">
-            <input id="search" type="search" name="name" placeholder="search name" value="<%= name %>"
-              autocomplete="off">
-            <i class="material-icons">close</i>
-          </div>
-        </div>
-        <div class="col s2">
-          <p>
-            <label for="sort-cohort">
-              <input name="sort" type="radio" id="sort-cohort" value="cohort" class="with-gap"
-                <%= sortKey === 'cohort' ? 'checked' : '' %>>
-              <span>Sort by Cohort</span>
-            </label>
-          </p>
-          <p>
-            <label for="sort-name">
-              <input name="sort" type="radio" id="sort-name" value="name" class="with-gap"
-                <%= sortKey === 'name' ? 'checked' : '' %>>
-              <span>Sort by Name</span>
-            </label>
-          </p>
-        </div>
-      </form>
+      <a href="/courses">Create Online Course</a>
     </div>
     <div class="row">
       <div id="instructors" class="col s12">
