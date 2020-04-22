@@ -29,7 +29,18 @@ const courseSchema = new Schema({
 
     startDate: {
         type: Date
+    },
+
+    instructor: {
+        type: Schema.Types.ObjectId, 
+        ref: 'Instructor'
+    },
+
+    location: {
+        type: Schema.Types.ObjectId, 
+        ref: 'Location'
     }
+
 },
 
     {timestamps: true}

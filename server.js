@@ -2,7 +2,6 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-// session middleware
 var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
@@ -15,18 +14,19 @@ var app = express();
 
 // connect to the MongoDB with mongoose
 require('./config/database');
+// connect to passport config file
 require('./config/passport');
 
 // require our routes
-const indexRouter = require('./routes/index');
-const studentsRouter = require('./routes/students');
-const coursesRouter = require('./routes/courses')
-const instructorsRouter= require('./routes/instructors');
+const indexRoutes = require('./routes/index');
+const instructorsRoutes = require('./routes/instructors');
+const coursesRouter = require('./routes/courses');
+const locationsRouter = require('./routes/locations');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 
 
 app.use(methodOverride('_method'));
@@ -36,7 +36,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
-  secret: 'SEIRocks!',
+  secret: 'OPEN-S-Reg',
   resave: false,
   saveUninitialized: true
 }));
@@ -44,10 +44,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // mount all routes with appropriate base paths
-app.use('/', indexRouter);
-app.use('/', studentsRouter);
+app.use('/', indexRoutes);
+app.use('/', instructorsRoutes);
 app.use('/courses', coursesRouter);
-app.use('/instructors', instructorsRouter);
+app.use('/', locationsRouter);
 
 // invalid request, send 404 page
 app.use(function(req, res) {

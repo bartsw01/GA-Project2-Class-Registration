@@ -15,7 +15,7 @@ passport.use(
         if (instructor) {
           return cb(null, instructor);
         } else {
-            console.log(profile);
+            console.log(profile, "HELLO OAUth!");
           // we have a new student via OAuth!
           var newInstructor = new Instructor({
             name: profile.displayName,

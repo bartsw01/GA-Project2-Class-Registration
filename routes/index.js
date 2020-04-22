@@ -1,37 +1,31 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
+var router = require('express').Router();
+const passport = require('passport');
 
-const isLoggedIn = (req, res, next) => {
-  if (req.isAuthenticated()) return next()
-  res.redirect('/auth/google');
-}
-
-
-/* GET home page. */
-router.get('/', isLoggedIn, function(req, res, next) {
-  res.redirect('/instructors');
-  // res.redirect('/students');
+// The root route renders our only view
+router.get('/', function(req, res) {
+  console.log("HELOOOOO")
+  res.redirect('/courses');
 });
 
+// Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
 ));
 
  // Google OAuth callback route
-router.get('/oauth2callback', passport.authenticate(
+ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/instructors',
-    failureRedirect : '/instructors'
+    successRedirect : '/courses',
+    failureRedirect : '/courses'
   }
 ));
 
-// OAuth logout route
-router.get('/logout', function(req, res){
+ // OAuth logout route
+ router.get('/logout', function(req, res){
   req.logout();
-  res.redirect('/instructors');
+  res.redirect('/courses');
 });
 
 module.exports = router;

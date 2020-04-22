@@ -1,8 +1,10 @@
 <%- include('../partials/header') %>
 <nav>
-  <img src="/images/blue-computer.png">
+  
   <a href="/courses/new" <%- title === 'Add Course' ? 'class="active"' : '' %>>ADD COURSE</a>
   <a href="/courses" <%- title === 'All Courses' ? 'class="active"' : '' %>>ALL COURSES</a>
+  <a href="/locations/new" <%- title === 'Add Location' ? 'class="active"' : '' %>>ADD LOCATION</a>
+  <a href="/logout">Log Out</a>
 </nav>
 <table>
     <thead>
@@ -22,11 +24,13 @@
           <td><%= c.noOfWeeks %></td>
           <td><%= c.courseNo %></td>
           <td><%= c.startDate %></td>
-          <td><a href="/courses/edit">DETAILS</a></td>
-          <!-- <form action="/courses/<%= courses._id %>?_method=DELETE"
+          <td><a href="/courses/show/<%= c._id %>">DETAILS</a></td>
+          <td>
+          <form action="/courses/<%= c._id %>?_method=DELETE"
             class="delete-form" method="POST">
             <button type="submit">X</button>
-          </form> -->
+          </form>
+        </td>
         </tr>
       <% }); %>
     </tbody>

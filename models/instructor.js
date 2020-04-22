@@ -9,6 +9,7 @@ const instructorSchema = new Schema({
 
   name: String,
   email: String,
+  organization: String,
   avatar: String,
   googleId: String,
 }, {

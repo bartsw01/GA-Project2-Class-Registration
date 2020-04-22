@@ -16,7 +16,12 @@
   <label>Course Number:</label>
   <input type="number" name="courseNo">
   <label>Start Date:</label>
-  <input type="number" name="startDate">
+  <input type="date" name="startDate">
+  <select>
+    <% locations.forEach(function(l) { %>
+      <option><%= l.name %></option>
+    <% }) %>
+  </select>
   <input type="submit" value="Add Course">
 </form>
 

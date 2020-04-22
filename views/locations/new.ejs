@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<p>Please first ensure that the Location is not in the dropdown
+  <select>
+    <% locations.forEach(function(l) { %>
+      <option><%= l.name %></option>
+    <% }) %>
+  </select>
+</p>
+<form id="add-location-form" action="/locations" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <label>Address:</label>
+  <input type="text" name="address">
+  <label>City:</label>
+  <input type="text" name="city">
+  <input type="submit" value="Add Location">
+</form>
+
+<%- include('../partials/footer') %>

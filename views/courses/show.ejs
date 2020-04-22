@@ -11,20 +11,7 @@
     <div><%= course.courseNo %></div>
     <div>Start Date: </div>
     <div><%= course.startDate %></div>
-    <div>Student List:</div>
-    <ul>
-      <%- course.studentList.map(p => 
-        `<li>${s.name}</li>`
-      ).join('') %>
-    </ul>
   </section>
-
-  <form id="add-student-to-studentList" action="/courses/<%= course._id%>/students" method="POST">
-    <select name="studentId">
-      <%- students.map(s => `<option value="${s._id}">${s.name}</option>`).join('') %>
-    </select>
-    <button type="submit">Add to Student List</button>
-  </form>
-
+  <a href="/courses/edit/<%= course._id %>">Edit Course</a>
 
 <%- include('../partials/footer') %>
