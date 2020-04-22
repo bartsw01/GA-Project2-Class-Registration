@@ -1,8 +1,30 @@
-<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>Add New Course</title>
+</head>
+<body>
+  
+  <main>
+    <h1>Add New Course</h1>
+<nav>
+  <ul>
+    <li><a href="/courses/new">ADD COURSE</a></li>
+    <li><a href="/courses">ALL COURSES</a></li>
+    <li><a href="/locations/new">ADD LOCATION</a></li>
+    <li><a href="/logout">Log Out</a></li>
+    <li><a href="/auth/google">Log In With Google</a></li>
+  </ul>
+</nav>
 
 <form id="new-form" action="/courses" method="POST">
   <label>Course Title:</label>
   <input type="text" name="title">
+  <br>
   <label>Day of the Week</label>
   <select name="dayOfWeek">
     <option value="Mon">Mon</option>
@@ -11,17 +33,22 @@
     <option value="Thur">Thur</option>
     <option value="Fri">Fri</option>
   </select>
+  <br>
   <label>Number of Weeks:</label>
   <input type="number" name="noOfWeeks">
+  <br>
   <label>Course Number:</label>
   <input type="number" name="courseNo">
+  <br>
   <label>Start Date:</label>
   <input type="date" name="startDate">
+  <br>
   <select>
     <% locations.forEach(function(l) { %>
       <option><%= l.name %></option>
     <% }) %>
   </select>
+  <br>
   <input type="submit" value="Add Course">
 </form>
 
