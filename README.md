@@ -2,7 +2,7 @@
 # _Class Registration CRUD Application_
 # _Getting Started:_
 
-[Click on Link to Run from Heroku](https://shrouded-savannah-16879.herokuapp.com/)
+[Click on Link to Run from Heroku](https://open-s-class-registration.herokuapp.com/ )
 
 
 
