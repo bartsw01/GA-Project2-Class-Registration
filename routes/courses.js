@@ -8,7 +8,7 @@ function isLoggedIn(req, res, next) {
   }
 
 
-router.get('/', isLoggedIn, coursesCtrl.index);
+router.get('/', coursesCtrl.index);
 router.get('/new', isLoggedIn, coursesCtrl.new);
 // router.get('/show/:id', isLoggedIn, coursesCtrl.show)
 router.get('/show/:id', coursesCtrl.show)
