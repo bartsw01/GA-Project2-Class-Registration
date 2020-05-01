@@ -5,12 +5,18 @@ const Location = require('../models/location');
 
 const index = (req, res) => {
   console.log("current user:", req.user)
-  Course.find({instructor: req.user._id}, (err, courses) => {
+  if (req.user) {
+    Course.find({instructor: req.user._id}, (err, courses) => {
       res.render('courses/index', {
         title: 'All Courses', 
         courses 
       });
   });
+  
+  } else {
+    res.redirect('/auth/google')
+  }
+  
 }
 
 const show = (req, res) => {
